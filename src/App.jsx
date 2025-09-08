@@ -1,27 +1,21 @@
 import './App.css'
-import Hero from "./components/Hero/Hero.jsx";
-import Partners from "./components/Partners/Partners.jsx";
-import ProductOfTheWeekParent from "./components/ProductOfTheWeek/ProductOfTheWeekParent.jsx";
-import BestSeller from "./components/BestSeller/BestSeller.jsx";
-import FeaturedProducts from "./components/FeaturedProducts/FeaturedProducts.jsx";
-import BestServicesParent from "./components/BestServices/BestServicesParent.jsx";
-import FeaturedPostsParent from "./components/FeaturedPosts/FeaturedPostsParent.jsx";
-import Footer from "./components/Footer/Footer.jsx";
+import Layout from "./layout/layout.jsx";
+import {Switch, Route} from "react-router-dom";
+import HomePage from "./components/HomePage.jsx";
+
 
 function App() {
-
     return (
-        <>
-            <Hero/>
-            <Partners/>
-            <ProductOfTheWeekParent/>
-            <BestSeller/>
-            <FeaturedProducts/>
-            <BestServicesParent/>
-            <FeaturedPostsParent/>
-            <Footer/>
-        </>
-    )
+        <Layout>
+            <Switch>
+                <Route exact path="/" component={HomePage}/>
+                {/*<Route path="/product" component={ProductPage}/>*/}
+                {/*<Route path="/about" component={AboutPage}/>*/}
+                {/*<Route path="/contact" component={ContactPage}/>*/}
+                {/*<Route component={NotFoundPage}/>*/}
+            </Switch>
+        </Layout>
+    );
 }
 
-export default App
+export default App;

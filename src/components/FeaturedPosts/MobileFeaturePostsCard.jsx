@@ -1,10 +1,9 @@
 ﻿import React from 'react';
 
-const FeaturedPostsChildren = ({image, date, commentCount, desc, title}) => {
+const MobileFeaturePostsCard = ({image, date, commentCount, desc, title}) => {
     return (
 
-        <div className=" w-full text-ce font-montserrat text-sm flex flex-col items-center py-10">
-
+        <div className="font-montserrat text-sm flex flex-col items-center shadow-md pb-5 sm:w-3/12">
             {/*Üst Resim ve New kısmı*/}
             <div className="relative">
                 <img className="aspect-square" src={image} alt={image}/>
@@ -44,4 +43,4 @@ const FeaturedPostsChildren = ({image, date, commentCount, desc, title}) => {
         </div>);
 };
 
-export default FeaturedPostsChildren;
+export default MobileFeaturePostsCard;

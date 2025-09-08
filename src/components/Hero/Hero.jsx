@@ -4,12 +4,9 @@ import Headers from "./Mobile/Headers.jsx";
 import ShopHeader from "./ShopHeader.jsx";
 
 const Hero = () => {
-    return (
-        <div className="flex flex-col min-h-svh">
-            <Navbar/>
-            <ShopHeader/>
-        </div>
-    );
+    return (<div className="flex flex-col ">
+        <Navbar/>
+    </div>);
 };
 
 export default Hero;

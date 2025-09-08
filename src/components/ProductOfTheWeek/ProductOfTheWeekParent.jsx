@@ -14,10 +14,20 @@ let images = [
 
 const ProductOfTheWeekParent = () => {
     return (
-        <div className="flex flex-col items-center gap-5">
-            {images.map((o, index) => (
-                <ProductOfTheWeekChild {...o} key={index}/>
-            ))}
+        <div className="flex justify-center">
+            <div className="flex flex-col gap-5 w-9/12 sm:flex-row justify-center">
+                <div className="sm:grow-1 sm:basis-5 ">
+                    <ProductOfTheWeekChild {...images[0]} />
+                </div>
+                <div className="h-full flex flex-col gap-5 sm:basis-0 sm:grow-1">
+                    <div>
+                        <ProductOfTheWeekChild {...images[1]} />
+                    </div>
+                    <div>
+                        <ProductOfTheWeekChild {...images[2]} />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

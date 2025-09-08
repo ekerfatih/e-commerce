@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 
 const Product = ({image, name, price, discount, section, department}) => {
-    return (<div className={"w-9/12 font-montserrat flex flex-col  items-center "}>
+    return (<div className={"w-9/12 font-montserrat flex flex-col  items-center sm:w-2/12 "}>
 
         <img src={image} alt={name}/>
         <div className={"pt-6"}>{section}</div>

@@ -18,12 +18,32 @@ let pinPoints = [{
     }, {title: "API", href: "/api"}],
 },]
 
+
+const GetInTouch = () => {
+    return (
+        <div className="flex flex-col">
+            <h5 className={"font-bold mt-5"}>Get In Touch</h5>
+            <div className="flex flex-col ">
+                <div className="flex h-12 mt-4 ">
+                    <input
+                        className="basis-0 grow-2 border-[#E6E6E6] pl-5 bg-[##F9F9F9] text-[#E6E6E6]"
+                        placeholder={"Your Email"}
+                        type="text"/>
+                    <button className="basis-0 grow-2 h-full text-[14px] bg-[#23A6F0] text-white">Subscribe</button>
+                </div>
+                <p className="text-xs text-secondary-text">Lore imp sum dolor Amit</p>
+            </div>
+        </div>
+    )
+}
+
+
 const Footer = () => {
     return (<>
         {/*Gray Area*/}
-        <div className="flex justify-center bg-[#FAFAFA] h-40">
+        <div className="flex justify-center bg-[#FAFAFA] h-40 sm:mt-20">
             <div className="w-9/12 flex flex-col justify-center">
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col gap-5 sm:flex-row sm:justify-between sm:mr-[5%]">
                     <div>
                         <img src="/logo/bandage.png" alt="logo"/>
                     </div>
@@ -36,38 +56,27 @@ const Footer = () => {
             </div>
         </div>
         {/*Map metodu*/}
-        <div className="flex flex-col items-center">
-            <div className="w-9/12">
-                {pinPoints.map((point) => (<div key={point.title} className="flex flex-col gap-2 py-5">
+        <div className="flex flex-col items-center py-20">
+            <div className="w-9/12 flex flex-col gap-6 sm:flex-row sm:justify-between">
+                {pinPoints.map((point) => (<div key={point.title} className="basis-0 grow-1 flex flex-col gap-2 ">
                     <h5 className={"font-bold"}>{point.title}</h5>
                     {point.subTitles?.map((subTitle, i) => (
                         <a href={subTitle.href} key={i}>{subTitle.title}</a>))}
                 </div>))}
-            </div>
-        </div>
-        {/*İletişime geç*/}
-        <div className="flex flex-col items-center">
-            <div className="w-9/12">
-                <h5 className={"font-bold mt-5"}>Get In Touch</h5>
-                <div className="flex flex-col ">
-                    <div className="flex h-12 mt-4 ">
-                        <input
-                            className="basis-0 grow-2 border-[#E6E6E6] pl-5 bg-[##F9F9F9] text-[#E6E6E6]"
-                            placeholder={"Your Email"}
-                            type="text"/>
-                        <button className="basis-0 grow-2 h-full text-[14px] bg-[#23A6F0] text-white">Subscribe</button>
-                    </div>
-                    <p className="text-xs text-secondary-text">Lore imp sum dolor Amit</p>
+                <div className="basis-0 grow-2">
+                    <GetInTouch/>
                 </div>
             </div>
         </div>
+        {/*İletişime geç*/}
 
-        <div className=" font-bold bg-[#FAFAFA] h-30 flex flex-col text-center justify-center mt-15">
-            <p>Made With Love By</p>
-            <p>Finland All Right Reserved</p>
+
+        <div className=" font-bold bg-[#FAFAFA] h-30 flex flex-col text-center justify-center mt-15 sm:text-left">
+            <div className={"sm:ml-[20%]"}>
+                <p>Made With Love By <br className={"sm:hidden block"}/>
+                    Finland All Right Reserved</p>
+            </div>
         </div>
-
-
     </>);
 };
 

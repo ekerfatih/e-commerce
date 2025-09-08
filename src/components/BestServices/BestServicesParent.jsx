@@ -3,8 +3,11 @@ import BestServicesChild from "./BestServicesChild.jsx";
 
 let services = [
     {image: "/services/Easy.png", name: "Easy Wins", desc: "Get your best looking smile now!"},
-    {image: "/services/Concrete.png",name: "Concrete",desc: "Defalcate is most focused in helping you discover your most beautiful smile"
-}, {image: "/services/Hack.png", name: "Hack Growth", desc: "Overcame any hurdle or any other problem."}]
+    {
+        image: "/services/Concrete.png",
+        name: "Concrete",
+        desc: "Defalcate is most focused in helping you discover your most beautiful smile"
+    }, {image: "/services/Hack.png", name: "Hack Growth", desc: "Overcame any hurdle or any other problem."}]
 
 const BestServicesParent = () => {
     return (
@@ -17,7 +20,7 @@ const BestServicesParent = () => {
                         the conflict between </p>
                 </div>
             </div>
-            <div className="flex flex-col items-center text-center mt-25">
+            <div className="flex flex-col sm:flex-row sm:gap-50 items-center text-center mt-25 sm:mt-15">
                 {services.map((bestService, index) => (
                     <BestServicesChild {...bestService} key={index}/>
                 ))}
