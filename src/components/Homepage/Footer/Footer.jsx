@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import FooterBand from "./FooterBand.jsx";
 
 let pinPoints = [{
     title: "Company Info", subTitles: [{title: "About Us", href: "/about"}, {title: "Carrier", href: "/carrier"}, {
@@ -41,20 +42,7 @@ const GetInTouch = () => {
 const Footer = () => {
     return (<>
         {/*Gray Area*/}
-        <div className="flex justify-center bg-[#FAFAFA] h-40 sm:mt-20">
-            <div className="w-9/12 flex flex-col justify-center">
-                <div className="flex flex-col gap-5 sm:flex-row sm:justify-between sm:mr-[5%]">
-                    <div>
-                        <img src="/logo/bandage.png" alt="logo"/>
-                    </div>
-                    <div className="flex gap-5 ">
-                        <a href="/facebook"><img src="/social/facebook.png" alt=""/></a>
-                        <a href="/instagram"><img src="/social/Insta.png" alt=""/></a>
-                        <a href="/twitter"><img src="/social/Twitter.png" alt=""/></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <FooterBand/>
         {/*Map metodu*/}
         <div className="flex flex-col items-center py-20">
             <div className="w-9/12 flex flex-col gap-6 sm:flex-row sm:justify-between">

@@ -45,7 +45,7 @@ let pcPosts = [{
 
 const FeaturedPostsParent = () => {
     return (
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center mb-20">
             <h5 className="text-[#23A6F0] font-bold">Practice Advice</h5>
             <h2 className="text-[40px] font-bold my-5 leading-[50px] letter-spacing-[0.2px] mb-20">Featured Posts</h2>
             <div className="flex flex-col justify-center items-center sm:flex-row">
