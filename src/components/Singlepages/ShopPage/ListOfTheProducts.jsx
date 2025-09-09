@@ -2,174 +2,16 @@
 import {ChevronDown} from "lucide-react";
 import Limiter from "../../Homepage/layout/Limiter.jsx";
 import Product from "../../Homepage/BestSeller/Product.jsx";
+import {Link} from "react-router-dom";
 
-let products = [
-    {
-        id: 2,
-        image: "/products/product2.jpg",
-        name: "Product 2",
-        price: "$16.48",
-        discount: null,
-        section: "Graphic Design",
-        department: "English Department"
-    },
-    {
-        id: 1,
-        image: "/products/product1.jpg",
-        name: "Product 1",
-        price: "$16.48",
-        discount: "$6.48",
-        section: "Graphic Design",
-        department: "English Department"
-    },
-    {
-        id: 3,
-        image: "/products/product3.jpg",
-        name: "Product 3",
-        price: "$16.48",
-        discount: "$6.48",
-        section: "Graphic Design",
-        department: "English Department"
-    },
-    {
-        id: 4,
-        image: "/products/product4.jpg",
-        name: "Product 4",
-        price: "$16.48",
-        discount: "$6.48",
-        section: "Graphic Design",
-        department: "English Department"
-    },
-    {
-        id: 5,
-        image: "/products/product5.jpg",
-        name: "Product 5",
-        price: "$16.48",
-        discount: "$6.48",
-        section: "Graphic Design",
-        department: "English Department"
-    }, {
-        id: 6,
-        image: "/products/product6.jpg",
-        name: "Product 6",
-        price: "$16.48",
-        discount: "$6.48",
-        section: "Graphic Design",
-        department: "English Department"
-    }, {
-        id: 7,
-        image: "/products/product7.jpg",
-        name: "Product 7",
-        price: "$16.48",
-        discount: "$6.48",
-        section: "Graphic Design",
-        department: "English Department"
-    }, {
-        id: 8,
-        image: "/products/product8.jpg",
-        name: "Product 8",
-        price: "$16.48",
-        discount: "$6.48",
-        section: "Graphic Design",
-        department: "English Department"
-    }, {
-        id: 9,
-        image: "/products/product9.jpg",
-        name: "Product 9",
-        price: "$16.48",
-        discount: "$6.48",
-        section: "Graphic Design",
-        department: "English Department"
-    }, {
-        id: 10,
-        image: "/products/product10.jpg",
-        name: "Product 10",
-        price: "$16.48",
-        discount: "$6.48",
-        section: "Graphic Design",
-        department: "English Department"
-    }
-    , {
-        id: 11,
-        image: "/products/product11.jpg",
-        name: "Product 11",
-        price: "$16.48",
-        discount: "$6.48",
-        section: "Graphic Design",
-        department: "English Department"
-    }, {
-        id: 12,
-        image: "/products/product12.jpg",
-        name: "Product 12",
-        price: "$16.48",
-        discount: "$6.48",
-        section: "Graphic Design",
-        department: "English Department"
-    }//, {
-    //     image: "/products/product13.jpg",
-    //     name: "Product 13",
-    //     price: "$16.48",
-    //     discount: "$6.48",
-    //     section: "Graphic Design",
-    //     department: "English Department"
-    // }, {
-    //     image: "/products/product14.jpg",
-    //     name: "Product 14",
-    //     price: "$16.48",
-    //     discount: "$6.48",
-    //     section: "Graphic Design",
-    //     department: "English Department"
-    // }, {
-    //     image: "/products/product15.jpg",
-    //     name: "Product 15",
-    //     price: "$16.48",
-    //     discount: "$6.48",
-    //     section: "Graphic Design",
-    //     department: "English Department"
-    // }, {
-    //     image: "/products/product16.jpg",
-    //     name: "Product 16",
-    //     price: "$16.48",
-    //     discount: "$6.48",
-    //     section: "Graphic Design",
-    //     department: "English Department"
-    // }, {
-    //     image: "/products/product17.jpg",
-    //     name: "Product 17",
-    //     price: "$16.48",
-    //     discount: "$6.48",
-    //     section: "Graphic Design",
-    //     department: "English Department"
-    // }, {
-    //     image: "/products/product18.jpg",
-    //     name: "Product 18",
-    //     price: "$16.48",
-    //     discount: "$6.48",
-    //     section: "Graphic Design",
-    //     department: "English Department"
-    // }, {
-    //     image: "/products/product19.jpg",
-    //     name: "Product 19",
-    //     price: "$16.48",
-    //     discount: "$6.48",
-    //     section: "Graphic Design",
-    //     department: "English Department"
-    // }, {
-    //     image: "/products/product20.jpg",
-    //     name: "Product 20",
-    //     price: "$16.48",
-    //     discount: "$6.48",
-    //     section: "Graphic Design",
-    //     department: "English Department"
-    // },
-]
+import {products} from "/src/products.js";
 
 
 const ListOfTheProducts = () => {
     const [count, setCount] = useState(1)
     return (
         <div className={"font-montserrat"}>
-            <div className={"flex flex-col sm:flex-row gap-4 justify-between items-center"}>
+            <div className={"flex flex-col sm:flex-row gap-4  py-20 justify-between items-center"}>
                 <h6>Showing all 12 results</h6>
                 <div className={"flex gap-5 items-center"}>
                     <h6>Views:</h6>
@@ -188,9 +30,13 @@ const ListOfTheProducts = () => {
                 </div>
             </div>
             <div className={"mx-auto"}>
-                <div className={"w-full py-10 flex-col flex sm:flex-row sm:flex-wrap gap-20 sm:justify-evenly"}>
-                    {products.slice((count - 1) * 12, count * 12).map((product, index) => (
-                        <Product key={index} {...product}/>
+                <div className={"w-full py-10 flex-col flex sm:flex-row sm:flex-wrap gap-x-8 sm:justify-evenly"}>
+                    {products.slice((count - 1) * 12, count * 12).map((product) => (
+                        <div className={"sm:w-[23%]"}>
+                            <Link to={`/product/${product.id}`} key={product.id}>
+                                <Product renderColors={true} {...product}/>
+                            </Link>
+                        </div>
                     ))}
                 </div>
             </div>

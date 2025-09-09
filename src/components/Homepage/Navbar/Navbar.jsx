@@ -50,7 +50,7 @@ const BlackBand = () => {
 }
 
 const Nav = ({setOpen, open}) => {
-    return (<div className="flex flex-col sm:flex-row items-center justify-between w-11/12 py-10 sm:p-0">
+    return (<div className="flex flex-col sm:flex-row items-center justify-between w-11/12 py-10 sm:pt-10">
         <div className="flex justify-between w-full sm:w-auto">
             <div className="basis-0 grow-1">
                 <img className="aspect-auto" src="/logo/bandage.png" alt="logo_image"/>

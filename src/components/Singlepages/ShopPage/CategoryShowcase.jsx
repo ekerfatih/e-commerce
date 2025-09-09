@@ -13,4 +13,4 @@ const CategoryShowcase = () => {
     );
 };
 
-export default (props) => Limiter(CategoryShowcase)({...props, bg: "bg-[#FAFAFA]"});
+export default (props) => Limiter(CategoryShowcase)({...props, bg: "bg-lsecondary"});

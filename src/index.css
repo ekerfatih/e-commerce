@@ -7,6 +7,22 @@ body, html, #root {
     box-sizing: border-box;
 }
 
+.star-rating {
+    position: relative;
+}
+
+.stars {
+    display: flex;
+    gap: 4px;
+}
+
+.rating {
+    position: absolute;
+    top: 0;
+}
+
+
+
 @theme {
     --font-alfa-slab-one: "Alfa Slab One", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-abril-fatface: "Abril Fatface", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -44,7 +60,8 @@ body, html, #root {
     --color-cyan-1: #00A1C1;
     --color-ocean-1: #16697A;
 
-    --color-secondary-text: #737373;
+    --color-secondary: #737373;
+    --color-lsecondary: #e6e6e6;
 
     --color-shopheader-gradient-primary: #96E9FB;
     --color-shopheader-gradient-secondary: #ABECD6;

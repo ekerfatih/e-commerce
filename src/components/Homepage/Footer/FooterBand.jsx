@@ -20,4 +20,4 @@ const FooterBand = () => {
     );
 };
 
-export default (props) => Limiter(FooterBand)({...props, bg: "bg-[#FAFAFA]"});
+export default (props) => Limiter(FooterBand)({...props, bg: "bg-lsecondary"});

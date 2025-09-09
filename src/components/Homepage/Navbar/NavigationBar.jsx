@@ -4,7 +4,7 @@ import {ChevronRight} from "lucide-react";
 import {Link} from "react-router-dom";
 import Limiter from "../layout/Limiter.jsx";
 
-const NavigationBar = () => {
+const NavigationBar = ({show}) => {
 
     const capitalize = (word) => {
         return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
@@ -15,9 +15,9 @@ const NavigationBar = () => {
 
     return (<div
         className="flex flex-col font-bold sm:flex-row mt-10 justify-between  gap-10 items-center font-montserrat px-5 pt-10">
-        <div className={"text-2xl "}>
+        {show && <div className={"text-2xl "}>
             {capitalize(location)}
-        </div>
+        </div>}
         <div className={" flex text-xl items-center "}>
             <Link to={"/"} className={"flex text-black"}>
                 Home
@@ -30,5 +30,5 @@ const NavigationBar = () => {
 };
 
 export default (props) => {
-    return Limiter(NavigationBar)({...props, bg: "bg-[#FAFAFA]", width: "w-8/12"});
+    return Limiter(NavigationBar)({...props, bg: "bg-lsecondary", width: "w-8/12"});
 };

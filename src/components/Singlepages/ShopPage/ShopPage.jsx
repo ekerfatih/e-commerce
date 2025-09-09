@@ -7,7 +7,7 @@ import ListOfTheProducts from "./ListOfTheProducts.jsx";
 const ShopPage = () => {
     return (
         <div className="">
-            <NavigationBar/>
+            <NavigationBar show={true}/>
             <CategoryShowcase/>
             <ListOfTheProducts/>
             <Partners bg={"bg-[#FAFAFA]"}/>
