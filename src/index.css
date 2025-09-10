@@ -22,7 +22,6 @@ body, html, #root {
 }
 
 
-
 @theme {
     --font-alfa-slab-one: "Alfa Slab One", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-abril-fatface: "Abril Fatface", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -69,6 +68,11 @@ body, html, #root {
     --color-shopheader-blue: #2A7CC7;
     --color-shopheader-dark-blue: #2A7CC7;
     --color-shopheader-button: #23A6F0;
+
+    --color-button-blue: #23A6F0;
+    --text-forty: 40px;
+    --text-sxl: 14px;
+
 }
 
 @layer components {

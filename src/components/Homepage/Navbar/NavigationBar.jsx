@@ -13,20 +13,21 @@ const NavigationBar = ({show}) => {
     let location = useLocation();
     location = location.pathname.toString().slice(1, location.pathname.length);
 
-    return (<div
-        className="flex flex-col font-bold sm:flex-row  justify-between  gap-10 items-center font-montserrat px-5 pt-10">
-        {show && <div className={"text-2xl "}>
-            {capitalize(location)}
-        </div>}
-        <div className={" flex text-xl items-center "}>
-            <Link to={"/"} className={"flex text-black"}>
-                Home
-            </Link>
-            <span className={"flex  text-secondary-text"}>
+    return (
+        <div
+            className={`flex flex-col font-bold sm:flex-row  justify-between  gap-10 items-center font-montserrat px-5 pt-10`}>
+            {show && <div className={"text-2xl"}>
+                {capitalize(location)}
+            </div>}
+            <div className={" flex text-xl items-center "}>
+                <Link to={"/"} className={"flex text-black"}>
+                    Home
+                </Link>
+                <span className={"flex  text-secondary-text"}>
                 <ChevronRight className={"translate-y-1"}/> Shop
             </span>
-        </div>
-    </div>);
+            </div>
+        </div>);
 };
 
 export default (props) => {

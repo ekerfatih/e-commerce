@@ -44,7 +44,8 @@ const Contact = () => {
                     </div>
                     <h5 className={"font-bold"}>WE Can't WAIT TO MEET YOU</h5>
                     <h1 className={"font-bold text-[58px] py-10"}>Let’s Talk</h1>
-                    <button className={"font-bold text-[14px] sm:py-5 sm:px-10 py-3 px-5 bg-[#23A6F0] text-white"}>Try it free now
+                    <button className={"font-bold text-[14px] sm:py-5 sm:px-10 py-3 px-5 bg-[#23A6F0] text-white"}>Try
+                        it free now
                     </button>
                 </div>
             </div>
