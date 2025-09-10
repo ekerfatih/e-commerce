@@ -6,6 +6,7 @@ import ShopPage from "./components/Singlepages/ShopPage/ShopPage.jsx";
 import ProductDetails from "./components/Singlepages/ProductDetailsPage/ProductDetails.jsx";
 import Contact from "./components/Singlepages/Contact/Contact.jsx";
 import Team from "./components/Singlepages/Team/Team.jsx";
+import About from "./components/Singlepages/About/About.jsx";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                 <Route path="/product/:id" component={ProductDetails}/>
                 <Route path="/team" component={Team}/>
                 <Route path="/contact" component={Contact}/>
+                <Route path="/about" component={About}/>
                 {/*<Route component={NotFoundPage}/>*/}
             </Switch>
         </Layout>

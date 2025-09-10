@@ -45,7 +45,7 @@ const Footer = () => {
         <FooterBand/>
         {/*Map metodu*/}
         <div className="flex flex-col items-center py-20">
-            <div className="w-9/12 flex flex-col gap-6 sm:flex-row sm:justify-between">
+            <div className="w-9/12 flex flex-col gap-6 sm:flex-row sm:justify-between pt-20">
                 {pinPoints.map((point) => (<div key={point.title} className="basis-0 grow-1 flex flex-col gap-2 ">
                     <h5 className={"font-bold"}>{point.title}</h5>
                     {point.subTitles?.map((subTitle, i) => (
