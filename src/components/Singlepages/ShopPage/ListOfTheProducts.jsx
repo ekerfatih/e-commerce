@@ -42,7 +42,7 @@ const ListOfTheProducts = () => {
             </div>
 
             <div
-                className={"text-[14px] mx-auto max-w-[300px] font-bold w-full flex border-1 border-gray-300 rounded-[6px]  text-center shadow-2xs justify-center items-center content-center"}>
+                className={"mb-20 text-[14px] mx-auto max-w-[300px] font-bold w-full flex border-1 border-gray-300 rounded-[6px]  text-center shadow-2xs justify-center items-center content-center"}>
                 <div
                     className={"grow-2 h-15 bg-gray-100 border-gray-300 border-r justify-center items-center flex text-secondary-text"}>First
                 </div>

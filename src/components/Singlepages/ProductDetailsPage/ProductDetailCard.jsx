@@ -18,7 +18,7 @@ const ProductDetailCard = (product) => {
     return (
         <div className="product-details">
             <h4 className={"text-xl"}>{name}</h4>
-            <div className={"py-2 flex"}>
+            <div className={"py-2 flex gap-4"}>
                 <StarHelper rating={rating}/>
                 <h6 className={"font-bold text-[14px]"}>{reviewCount} Reviews</h6>
             </div>

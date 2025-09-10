@@ -59,7 +59,7 @@ const Footer = () => {
         {/*İletişime geç*/}
 
 
-        <div className=" font-bold bg-[#FAFAFA] h-30 flex flex-col text-center justify-center mt-15 sm:text-left">
+        <div className=" font-bold bg-lsecondary h-30 flex flex-col text-center justify-center mt-15 sm:text-left">
             <div className={"sm:ml-[20%]"}>
                 <p>Made With Love By <br className={"sm:hidden block"}/>
                     Finland All Right Reserved</p>

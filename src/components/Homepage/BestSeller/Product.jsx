@@ -1,8 +1,19 @@
 ﻿import React from 'react';
 import ColorOptionsHelper from "../../Singlepages/Helper/ColorOptionsHelper.jsx";
 
-const Product = ({image, name, price, discount, section, department, colorOptions, renderColors, alignCenter}) => {
-    return (<div className={` font-montserrat font-bold flex flex-col  ${alignCenter ? "items-center " : "items-left"}mb-15 bg-white`}>
+const Product = ({
+                     image,
+                     name,
+                     price,
+                     discount,
+                     section,
+                     department,
+                     colorOptions,
+                     renderColors,
+                     alignCenter = true
+                 }) => {
+    return (<div
+        className={` font-montserrat font-bold flex flex-col h-full ${renderColors && "mb-7"} ${alignCenter ? "items-center text-center " : "items-left"}  bg-white`}>
 
         <img src={image} alt={name}/>
         <div className={`${!alignCenter && "ml-10"}`}>

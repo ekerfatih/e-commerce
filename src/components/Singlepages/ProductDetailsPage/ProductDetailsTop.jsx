@@ -1,11 +1,6 @@
 ﻿import NavigationBar from "../../Homepage/Navbar/NavigationBar.jsx";
-import {products} from "/src/products.js";
-import {useParams} from "react-router-dom";
 import SwipeComponent from "../SwipeComponent.jsx";
 import Limiter from "../../Homepage/layout/Limiter.jsx";
-import StarHelper from "/src/components/Singlepages/Helper/StarHelper.jsx";
-import ColorOptionsHelper from "../Helper/ColorOptionsHelper.jsx";
-import {Eye, Heart, ShoppingCart} from "lucide-react";
 import ProductDetailCard from "./ProductDetailCard.jsx";
 
 const ProductDetailsTop = (product) => {
@@ -13,8 +8,14 @@ const ProductDetailsTop = (product) => {
     const {image} = product;
     return (<div className="font-montserrat">
         <NavigationBar show={false}/>
-        <SwipeComponent image={image}/>
-        <ProductDetailCard {...product}/>
+        <div className={"flex flex-col sm:flex-row max-w-screen"}>
+            <div className={"basis-7 grow"}>
+                <SwipeComponent image={image}/>
+            </div>
+            <div className={"basis-5 grow"}>
+                <ProductDetailCard {...product}/>
+            </div>
+        </div>
     </div>);
 };
 

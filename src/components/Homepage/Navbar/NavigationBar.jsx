@@ -14,7 +14,7 @@ const NavigationBar = ({show}) => {
     location = location.pathname.toString().slice(1, location.pathname.length);
 
     return (<div
-        className="flex flex-col font-bold sm:flex-row mt-10 justify-between  gap-10 items-center font-montserrat px-5 pt-10">
+        className="flex flex-col font-bold sm:flex-row  justify-between  gap-10 items-center font-montserrat px-5 pt-10">
         {show && <div className={"text-2xl "}>
             {capitalize(location)}
         </div>}

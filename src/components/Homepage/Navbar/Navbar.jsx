@@ -4,10 +4,13 @@ import {UserRound, Search, ShoppingCart, Menu, Phone, Mail, Instagram, Youtube, 
 import LoginRegister from "./LoginRegister.jsx";
 import Limiter from "../layout/Limiter.jsx";
 
-const headers = [{label: "Home", href: "/"}, {label: "Shop", href: "/shop"}, {
-    label: "About",
-    href: "/about"
-}, {label: "Blog", href: "/blog"}, {label: "Contact", href: "/contact"}, {label: "Pages", href: "/pages"},];
+const headers = [
+    {label: "Home", href: "/"},
+    {label: "Shop", href: "/shop"},
+    {label: "About", href: "/about"},
+    {label: "Blog", href: "/blog"},
+    {label: "Contact", href: "/contact"},
+    {label: "Team", href: "/team"},];
 
 const Headers = ({open}) => {
     return (<>
@@ -27,7 +30,7 @@ const BlackBand = () => {
     return (
 
         <div className="flex bg-[#252B42] font-bold text-white justify-center w-full">
-            <div className="w-11/12 hidden sm:flex h-10 gap-10 justify-between items-center">
+            <div className="w-11/12 hidden sm:flex py-3 gap-10 justify-between items-center">
                 <div className="flex gap-6">
             <span className="flex gap-4">
               <Phone/>

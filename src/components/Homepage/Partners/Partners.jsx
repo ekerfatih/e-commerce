@@ -5,8 +5,8 @@ const images = ["/partners/hooli.png", "/partners/lyft.png", "/partners/pied_pip
 const Partners = () => {
     return (
         <div
-            className="flex py-20 flex-col sm:flex-row items-center justify-center gap-15  sm:mt-20"> {images.map((src, i) => (
+            className="flex py-20 flex-col sm:flex-row items-center justify-center gap-15 sm:my-10 "> {images.map((src, i) => (
             <img key={i} src={src} alt={src}/>))} </div>);
 };
 export default (props) =>
-    Limiter(Partners)({...props});
+    Limiter(Partners)({...props, bg: "bg-lsecondary"});

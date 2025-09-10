@@ -15,7 +15,7 @@ const StarHelper = ({rating = 0, size = 24, color = "#FACC15", empty = "#E5E7EB"
             ))}
             {half === 1 && <StarHalf key="half" size={size} fill={color} strokeWidth={0}/>}
             {Array.from({length: emptyCount}).map((_, i) => (
-                <Star key={`e${i}`} size={size} fill="none" stroke={empty} strokeWidth={1.5}/>
+                <Star key={`e${i}`} size={size} fill="gray" stroke={empty} strokeWidth={1.5}/>
             ))}
         </div>
     );

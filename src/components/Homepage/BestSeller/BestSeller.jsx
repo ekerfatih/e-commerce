@@ -2,8 +2,9 @@
 import Product from "./Product.jsx";
 import {products} from "../../../products.js";
 import Limiter from "../layout/Limiter.jsx";
+import {Link} from "react-router-dom";
 
-const BestSeller = ({showDetails = true, alignCenter = true}) => {
+const BestSeller = ({showDetails = true, alignCenter = true, cardWidth = "sm:w-[18%]"}) => {
 
     const [count, setCount] = useState(10);
 
@@ -31,9 +32,12 @@ const BestSeller = ({showDetails = true, alignCenter = true}) => {
                 </div>
                 <div
                     className={`flex w-full flex-wrap sm:gap-5 justify-center gap-5 mt-20 ${alignCenter && "text-center"}`}>
-                    {products.slice(0, count).map((product, index) => (<div className={"sm:w-[18%]"}>
-                        <Product renderColors={false} alignCenter={alignCenter} key={index} {...product}/>
-                    </div>))}
+                    {products.slice(0, count).map((product, index) => (
+                        <div className={cardWidth}>
+                            <Link to={`/product/${product.id}`} key={product.id}>
+                                <Product renderColors={false} alignCenter={alignCenter} key={index} {...product}/>
+                            </Link>
+                        </div>))}
                 </div>
             </div>
         </div>
