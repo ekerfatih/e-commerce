@@ -14,7 +14,6 @@ const BestSeller = ({showDetails = true, alignCenter = true, cardWidth = "sm:w-[
             if (window.innerWidth < 640) setCount(5); else setCount(10);
         }
 
-        console.log(count)
         handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
@@ -33,9 +32,9 @@ const BestSeller = ({showDetails = true, alignCenter = true, cardWidth = "sm:w-[
                 <div
                     className={`flex w-full flex-wrap sm:gap-5 justify-center gap-5 mt-20 ${alignCenter && "text-center"}`}>
                     {products.slice(0, count).map((product, index) => (
-                        <div className={cardWidth}>
+                        <div className={cardWidth} key={index} >
                             <Link to={`/product/${product.id}`} key={product.id}>
-                                <Product renderColors={false} alignCenter={alignCenter} key={index} {...product}/>
+                                <Product renderColors={false} alignCenter={alignCenter} {...product}/>
                             </Link>
                         </div>))}
                 </div>
