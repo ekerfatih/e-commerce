@@ -2,7 +2,6 @@
 import {Link} from "react-router-dom";
 import {UserRound, Search, ShoppingCart, Menu, Phone, Mail, Instagram, Youtube, Facebook, Twitter} from "lucide-react";
 import LoginRegister from "./LoginRegister.jsx";
-import Limiter from "../layout/Limiter.jsx";
 
 const headers = [
     {label: "Home", href: "/"},

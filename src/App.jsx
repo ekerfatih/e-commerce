@@ -8,6 +8,7 @@ import Contact from "./components/Singlepages/Contact/Contact.jsx";
 import Team from "./components/Singlepages/Team/Team.jsx";
 import About from "./components/Singlepages/About/About.jsx";
 import Register from "./components/Singlepages/SignUp/Register.jsx";
+import LoginForm from "./components/Singlepages/Login/Login.jsx";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/contact" component={Contact}/>
                 <Route path="/about" component={About}/>
                 <Route path="/signup" component={Register}/>
+                <Route path="/login" component={LoginForm}/>
                 {/*<Route component={NotFoundPage}/>*/}
             </Switch>
         </Layout>

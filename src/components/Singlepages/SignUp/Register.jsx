@@ -1,4 +1,4 @@
-﻿import React, {useState} from "react";
+﻿import React, {useEffect, useState} from "react";
 import {
     TextField, Button, FormControl, InputLabel, OutlinedInput,
     InputAdornment, IconButton, MenuItem, Select, FormHelperText, CircularProgress, Alert
@@ -8,9 +8,10 @@ import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import useAxios from "../Helper/useAxios.jsx";
 import axios from "axios";
 import {useHistory, useLocation} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {getRoles} from "../../../store/actions/clientActions.js";
 
 const trPhone = /^(?:\+90|0)?(?:5\d{9}|[2-4]\d{9})$/;
 const trIban = /^TR\d{24}$/;
@@ -81,9 +82,15 @@ export default function KayitFormu() {
 
     const isStore = watch("role_id") === "2";
     const [showPassword, setShowPassword] = useState(false);
-    const {data: roles = [], loading} = useAxios("/roles");
+    const dispatch = useDispatch();
+    const roles = useSelector(store => store.client.roles);
+
     const [submitting, setSubmitting] = useState(false);
     const [serverError, setServerError] = useState("");
+
+    useEffect(() => {
+        dispatch(getRoles());
+    }, [dispatch])
 
     const onSubmit = async (v) => {
         setServerError("");
@@ -174,7 +181,7 @@ export default function KayitFormu() {
                                 onChange={(e) => field.onChange(e.target.value)}
                                 onBlur={field.onBlur}
                                 inputRef={field.ref}
-                                disabled={loading}
+                                // disabled={loading}
                             >
                                 {roles.map((r) => (
                                     <MenuItem key={r.id} value={String(r.id)}>{r.name}</MenuItem>
