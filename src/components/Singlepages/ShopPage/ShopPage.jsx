@@ -10,7 +10,7 @@ const ShopPage = () => {
             <NavigationBar show={true}/>
             <CategoryShowcase/>
             <ListOfTheProducts/>
-            <Partners bg={"bg-[#FAFAFA]"}/>
+            <Partners bg={"bg-lsecondary"}/>
         </div>
     );
 };

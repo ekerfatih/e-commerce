@@ -124,7 +124,7 @@ const About = () => {
                     Classical physics: Newtonian
                     mechanics </p>
             </div>
-            <Partners/>
+            <Partners bg={"bg-lsecondary"}/>
 
             <div className={"flex w-full sm:h-screen  justify-center items-center content-center overflow-hidden"}>
                 <div

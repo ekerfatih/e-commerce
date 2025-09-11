@@ -11,7 +11,7 @@ const HomePage = () => {
     return (
         <div>
             <ShopHeader/>
-            <Partners/>
+            <Partners bg={"bg-white"}/>
             <ProductOfTheWeekParent/>
             <BestSeller/>
             <FeaturedProducts/>
