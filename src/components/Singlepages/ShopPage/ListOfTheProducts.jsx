@@ -32,8 +32,8 @@ const ListOfTheProducts = () => {
             <div className={"mx-auto"}>
                 <div className={"w-full py-10 flex-col flex sm:flex-row sm:flex-wrap gap-x-8 sm:justify-evenly"}>
                     {products.slice((count - 1) * 12, count * 12).map((product) => (
-                        <div className={"sm:w-[23%]"}>
-                            <Link to={`/product/${product.id}`} key={product.id}>
+                        <div key={product.id} className={"sm:w-[23%]"}>
+                            <Link to={`/product/${product.id}`} >
                                 <Product renderColors={true} {...product}/>
                             </Link>
                         </div>

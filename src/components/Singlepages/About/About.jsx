@@ -97,7 +97,7 @@ const About = () => {
             {/* Video */}
             <div className={"sm:w-1/2 w-10/12 mx-auto "}>
                 <iframe className="aspect-video w-full rounded-md"
-                        src="https://www.youtube.com/embed/u3gqdxh7pLE"
+                        src="https://www.youtube-nocookie.com/embed/u3gqdxh7pLE"
                         title="Best R6 Montage Ever"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

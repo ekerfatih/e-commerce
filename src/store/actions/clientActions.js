@@ -23,19 +23,39 @@ export const getRoles = () => async dispatch => {
 
 export const login = (creds, remember) => async (dispatch) => {
     try {
-        const { data } = await axios.post(BASE_URL + "/login", creds);
-        dispatch({ type: SET_USER, payload: data });
+        const {data} = await axios.post(BASE_URL + "/login", creds);
+        dispatch({type: SET_USER, payload: data});
         if (remember && data.token) localStorage.setItem("token", data.token);
-        const payload = { name: data.name, email: data.email, role_id: data.role_id };
-        localStorage.setItem("user", JSON.stringify(payload));
-        return { success: true, payload };
+        return {success: true};
     } catch (err) {
         const message = err?.response?.data?.message || "Giriş başarısız oldu";
-        return { success: false, message };
+        return {success: false, message};
     }
 };
 
+
+export const verify = () => async dispatch => {
+    const token = localStorage.getItem("token");
+    if (token == null) return;
+    axios.get(BASE_URL + "/verify", {
+        headers: {
+            Authorization: `${token}`
+        }
+    })
+        .then(res => {
+            localStorage.setItem("token", res.data.token);
+            dispatch({type: SET_USER, payload: res.data});
+            return true;
+        })
+        .catch(err => {
+            dispatch({type: SET_USER, payload: null});
+            localStorage.removeItem("token");
+            console.error(err);
+            return false;
+        })
+}
+
 export const logout = () => (dispatch) => {
     localStorage.removeItem("token");
-    dispatch({ type: SET_USER, payload: null });
+    dispatch({type: SET_USER, payload: null});
 };

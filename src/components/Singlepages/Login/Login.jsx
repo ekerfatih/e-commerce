@@ -4,7 +4,7 @@ import {TextField, Button, CircularProgress, Checkbox, FormControlLabel, Snackba
 import {useDispatch} from "react-redux";
 import {login} from "../../../store/actions/clientActions.js";
 import {useHistory, useLocation} from "react-router-dom";
-import useLocalStorage from "../../../hooks/useLocalStorage.jsx";
+
 
 // customer@commerce.com
 // store@commerce.com
@@ -19,14 +19,13 @@ export default function LoginForm() {
     const location = useLocation();
     const from = location.state?.from || "/";
     const [toast, setToast] = useState({open: false, message: ""});
-    const [_, setUserLS] = useLocalStorage("user", null);
+
     const onSubmit = async (data) => {
-        const {success, payload, message} = await dispatch(login({
+        const {success, message} = await dispatch(login({
             email: data.email,
             password: data.password
         }, data.remember));
         if (success) {
-            setUserLS(payload);
             history.push(from);
         } else setToast({open: true, message});
     };
