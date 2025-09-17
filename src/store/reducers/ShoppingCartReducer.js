@@ -13,14 +13,14 @@ export const ShoppingCartReducer = (state = initialState, action) => {
                 const updatedCart = state.cart.map((item, index) =>
                     index === existingIndex
                         ? {...item, count: item.count + 1}
-                        : item
+                        : {item}
                 );
                 return {...state, cart: updatedCart};
             }
 
             return {
                 ...state,
-                cart: [...state.cart, {count: 1, product: action.payload}]
+                cart: [...state.cart, {count: 1, checked: true, product: action.payload}]
             };
         }
 

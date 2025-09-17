@@ -6,52 +6,50 @@ import 'swiper/css/thumbs';
 import {FreeMode, Navigation, Thumbs} from "swiper/modules";
 import React, {useState} from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import Limiter from "../Homepage/layout/Limiter.jsx";
 
-const SwipeComponent = ({image}) => {
+const SwipeComponent = ({images}) => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
+    const imgs = Array.isArray(images) ? images : [];
+    if (imgs.length === 0) return null;
 
     return (
-        <div className={"mx-auto py-10 sm:max-w-5/12"}>
+        <div className="mx-auto py-10 sm:max-w-5/12">
             <Swiper
-                style={{
-                    '--swiper-navigation-color': '#fff', '--swiper-pagination-color': '#fff',
-                }}
-                loop={true}
+                style={{'--swiper-navigation-color': '#fff', '--swiper-pagination-color': '#fff'}}
+                loop={imgs.length > 1}
                 spaceBetween={10}
-                navigation={true}
-                thumbs={{swiper: thumbsSwiper}}
+                navigation
+                thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper2"
             >
-                <SwiperSlide>
-                    <img className={""} src={image} alt={"f"}/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={image} alt={"f"}/>
-                </SwiperSlide>
+                {imgs.map((it, i) => (
+                    <SwiperSlide key={`main-${i}`}>
+                        <img src={it.url} alt="product" className="w-full h-auto object-contain" />
+                    </SwiperSlide>
+                ))}
             </Swiper>
-            <div className={"py-5 "}>
 
+            <div className="py-5">
                 <Swiper
                     onSwiper={setThumbsSwiper}
                     loop={true}
                     spaceBetween={10}
                     slidesPerView={4}
-                    freeMode={true}
-                    watchSlidesProgress={true}
+                    freeMode
+                    watchSlidesProgress
                     modules={[FreeMode, Navigation, Thumbs]}
                     className="mySwiper"
                 >
-                    <SwiperSlide>
-                        <img className={" aspect-square object-cover object-top"} src={image} alt={"f"}/>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img className={" aspect-square object-cover object-top"} src={image} alt={"f"}/>
-                    </SwiperSlide>
+                    {imgs.map((it, i) => (
+                        <SwiperSlide key={`thumb-${i}`}>
+                            <img src={it.url} alt="thumb" className="aspect-square object-cover object-top w-full h-full" />
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </div>
-        </div>);
+        </div>
+    );
 };
 
 export default SwipeComponent

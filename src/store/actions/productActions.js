@@ -25,11 +25,32 @@ export const fetchCategories = () => dispatch => {
         .catch(error => console.log(error));
 }
 
-export const fetchProducts = () => dispatch => {
-    axios.get(BASE_URL + "/products")
-        .then(response => {
-            dispatch(setProductList(response.data.products))
-            dispatch(setTotal(response.data.total));
+export const fetchProducts = (query = "") => (dispatch) => {
+    dispatch(setFetchState("FETCHING"));
+    axios
+        .get(`${BASE_URL}/products${query}`)
+        .then((res) => {
+            dispatch(setProductList(res.data.products));
+            dispatch(setTotal(res.data.total));
+            dispatch(setFetchState("FETCHED"));
         })
-        .catch(error => console.log(error));
-}
+        .catch((err) => {
+            console.error(err);
+            dispatch(setFetchState("FAILED"));
+        });
+};
+
+export const fetchProductWithId = (id) => (dispatch) => {
+    dispatch(setFetchState("FETCHING"));
+    return axios
+        .get(`${BASE_URL}/products/${id}`)
+        .then((res) => {
+            dispatch(setFetchState("FETCHED"));
+            return res.data;
+        })
+        .catch((err) => {
+            console.error(err);
+            dispatch(setFetchState("FAILED"));
+            throw err;
+        });
+};

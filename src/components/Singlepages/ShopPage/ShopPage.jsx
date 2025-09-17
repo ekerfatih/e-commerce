@@ -5,6 +5,7 @@ import CategoryShowcase from "./CategoryShowcase.jsx";
 import ListOfTheProducts from "./ListOfTheProducts.jsx";
 
 const ShopPage = () => {
+
     return (
         <div className="">
             <NavigationBar show={true}/>

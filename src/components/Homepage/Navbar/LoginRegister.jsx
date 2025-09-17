@@ -11,6 +11,8 @@ const LoginRegister = () => {
     const user = useSelector((state) => state.client.user);
     const history = useHistory();
 
+    const {cart} = useSelector((state) => state.cart);
+
     console.log(user);
     const handleLogout = () => {
         dispatch(logout());
@@ -43,7 +45,7 @@ const LoginRegister = () => {
         )}
           <div className="flex gap-5">
           <div><Search/></div>
-          <div className="flex gap-1"><ShoppingCart/>{0}</div>
+          <div className="flex gap-1"><ShoppingCart/>{cart.reduce((t, a) => t + a.count, 0)}</div>
           <div className="flex gap-1"><Heart/>{0}</div>
         </div>
       </span>

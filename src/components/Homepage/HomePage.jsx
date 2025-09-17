@@ -13,7 +13,7 @@ const HomePage = () => {
             <ShopHeader/>
             <Partners bg={"bg-white"}/>
             <ProductOfTheWeekParent/>
-            <BestSeller/>
+            <BestSeller count={10}/>
             <FeaturedProducts/>
             <BestServicesParent/>
             <FeaturedPostsParent/>

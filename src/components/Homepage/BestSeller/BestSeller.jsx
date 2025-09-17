@@ -1,23 +1,34 @@
 ﻿import React, {useEffect, useState} from 'react';
 import Product from "./Product.jsx";
-import {products} from "../../../products.js";
 import Limiter from "../layout/Limiter.jsx";
 import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchProducts} from "../../../store/actions/productActions.js";
 
-const BestSeller = ({showDetails = true, alignCenter = true, cardWidth = "sm:w-[18%]"}) => {
+const BestSeller = ({showDetails = true, alignCenter = true, cardWidth = "sm:w-[18%]", count = 8}) => {
 
-    const [count, setCount] = useState(10);
+    const {productList, categories} = useSelector(s => s.products);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (!productList?.length) {
+            dispatch(fetchProducts());
+        }
+    }, [dispatch, productList?.length]);
+
+    const products = productList.sort((a, b) => b.rating - a.rating);
 
 
     useEffect(() => {
         function handleResize() {
-            if (window.innerWidth < 640) setCount(5); else setCount(10);
+            if (window.innerWidth < 640) count / 2; else count;
         }
 
         handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+
 
     return (<div className="flex flex-col items-center font-montserrat pt-20 mt-20">
         <div className="flex justify-center sm:w-10/12">
@@ -31,12 +42,17 @@ const BestSeller = ({showDetails = true, alignCenter = true, cardWidth = "sm:w-[
                 </div>
                 <div
                     className={`flex w-full flex-wrap sm:gap-5 justify-center gap-5 mt-20 ${alignCenter && "text-center"}`}>
-                    {products.slice(0, count).map((product, index) => (
-                        <div className={cardWidth} key={index} >
-                            <Link to={`/product/${product.id}`} key={product.id}>
-                                <Product renderColors={false} alignCenter={alignCenter} {...product}/>
-                            </Link>
-                        </div>))}
+                    {products.slice(0, count).map((product, index) => {
+                            const cat = categories.find(category => category.id === product.category_id)
+                            return (<div className={cardWidth} key={index}>
+                                <Link
+                                    to={`/shop/${cat.gender === "k" ? "kadin" : "erkek"}/${cat.code.slice(2)}/${cat.id}/${product.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}/${product.id}`}
+                                >
+                                    <Product renderColors={false} alignCenter={alignCenter} {...product}/>
+                                </Link>
+                            </div>)
+                        }
+                    )}
                 </div>
             </div>
         </div>

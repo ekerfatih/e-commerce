@@ -5,12 +5,12 @@ import ProductDetailCard from "./ProductDetailCard.jsx";
 
 const ProductDetailsTop = (product) => {
 
-    const {image} = product;
+    const {images} = product;
     return (<div className="font-montserrat">
         <NavigationBar show={false}/>
         <div className={"flex flex-col sm:flex-row max-w-screen"}>
             <div className={"basis-7 grow"}>
-                <SwipeComponent image={image}/>
+                <SwipeComponent images={images}/>
             </div>
             <div className={"basis-5 grow"}>
                 <ProductDetailCard {...product}/>
