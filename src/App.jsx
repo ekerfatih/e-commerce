@@ -10,6 +10,7 @@ import About from "./components/Singlepages/About/About.jsx";
 import Register from "./components/Singlepages/SignUp/Register.jsx";
 import LoginForm from "./components/Singlepages/Login/Login.jsx";
 import ScrollToTop from "./components/Singlepages/Helper/ScrollToTop.jsx";
+import ShoppingCart from "./components/Singlepages/ShoppingCart/ShoppingCart.jsx";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                 <Route exact path="/shop/:gender/:categoryName/:categoryId" component={ShopPage}/>
                 <Route exact path="/shop/:gender/:categoryName/:categoryId/:productNameSlug/:productId" component={ProductDetails}/>
                 <Route exact path="/shop" component={ShopPage}/>
+                <Route path="/cart" component={ShoppingCart}/>
                 <Route path="/team" component={Team}/>
                 <Route path="/contact" component={Contact}/>
                 <Route path="/about" component={About}/>

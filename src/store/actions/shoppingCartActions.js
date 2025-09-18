@@ -6,6 +6,6 @@ export const setCart = (cart) => ({type: SET_CART, payload: cart});
 export const setPayment = (payment) => ({type: SET_PAYMENT, payload: payment});
 export const setAddress = (address) => ({type: SET_ADDRESS, payload: address});
 
-export const addToTheCart = (product) => (dispatch) => {
-    dispatch(setCart(product));
-}
+export const addToTheCart = (product, checked = true, count = 1) => (dispatch) => {
+    dispatch(setCart({product, checked, count}));
+};

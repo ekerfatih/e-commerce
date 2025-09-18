@@ -8,20 +8,31 @@ export const ShoppingCartReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case SET_CART: {
-            const existingIndex = state.cart.findIndex(item => item.product.id === action.payload.id);
-            if (existingIndex !== -1) {
-                const updatedCart = state.cart.map((item, index) =>
-                    index === existingIndex
-                        ? {...item, count: item.count + 1}
-                        : {item}
-                );
-                return {...state, cart: updatedCart};
+            const { product, checked, count } = action.payload
+            const idx = state.cart.findIndex(i => i.product.id === product.id)
+
+            if (idx !== -1) {
+                const updated = state.cart.map((item, index) => {
+                    if (index !== idx) return item
+                    const delta = Number(count) || 0
+                    const nextCount = item.count + delta
+                    const nextChecked = typeof checked === 'boolean' ? checked : item.checked
+                    return { ...item, count: nextCount, checked: nextChecked }
+                }).filter(i => i.count > 0)
+                return { ...state, cart: updated }
             }
 
             return {
                 ...state,
-                cart: [...state.cart, {count: 1, checked: true, product: action.payload}]
-            };
+                cart: [
+                    ...state.cart,
+                    {
+                        product,
+                        checked: typeof checked === 'boolean' ? checked : true,
+                        count: Math.max(1, Number(count) || 1)
+                    }
+                ]
+            }
         }
 
         case SET_PAYMENT:
